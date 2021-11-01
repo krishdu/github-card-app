@@ -1,12 +1,15 @@
 # Getting Started with First React App 😀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+### Github Card App
+> It's a basic app to show github user's profile if user input input github handles.
 > I have created this for learning React. Here I first started with React Class Component.
  
 * Learnings: 
     * How to create React App with NPX.
     * How to pass Props (properties) from one component to other.
+    
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## ✨ My Thought Process ✨
 ```
 Phase1
