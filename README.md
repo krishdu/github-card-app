@@ -12,10 +12,31 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## ✨ My Thought Process ✨
 ```
-Phase1
+Step 1
 ```
 + Create a Card component and show static data
 
+```
+Step 2
+```
+ + Create a CardList component and show list of static data
+
+```
+Step 3
+```
+ + Create a Form component to get user data
+```
+Step 4
+```
+ + install axios to call HTTP get method `npm i axios`
+ + make GET request `https://api.github.com/users/<userHandle>`
+ + populate data in console
+
+```
+Step 5
+```
+ + handle the state in parent component (i.e. App)
+ + Render each profile
 
 ## Available Scripts
 

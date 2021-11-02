@@ -1,21 +1,50 @@
 import React from 'react';
+import axios from 'axios';
 import './App.css';
-
-const testData = [
-    {name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "Facebook"},
-    {name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
-    {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
-];
 
 
 //function component
 const CardList = (props) => (
   <div>
-    {testData.map(profile => <Card {...profile}/>)}
+    {props.profile.map(profile => <Card key={profile.id} {...profile}/>)}
   </div>
 );
 
 //class component
+class Form extends React.Component{
+  state = {userName : ''};
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`)
+    this.props.onSubmit(resp.data);
+    this.setState({userName : ''});
+  };
+
+  render(){
+    return(
+      <div className="container mb-3">
+        <form  className="form-inline" onSubmit={this.handleSubmit}>
+          <div className="row">
+            <div className="col-8">
+                <input type="text"
+                  className = "form-control"
+                  onChange = { event => this.setState({userName : event.target.value})} 
+                  value = {this.state.userName}
+                  placeholder="GitHub username"
+                  required/>
+            </div>
+            <div className="col-4">
+                <button type="submit" className="btn btn-success">Add card</button>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+    );
+  }
+}
+
 class Card extends React.Component {
 	render() {
     const profile =this.props;
@@ -27,7 +56,7 @@ class Card extends React.Component {
           </div>
           <div className="col-8 mt-5">
                <h5> {profile.name} </h5>
-               <h6> {profile.company} </h6>
+               <h6> {profile.location} </h6>
           </div>
         </div>
       </div>
@@ -36,11 +65,22 @@ class Card extends React.Component {
 }
 
 class App extends React.Component {
+  state = {
+    profiles : [],
+  };
+
+  addNewProfile = (profileData) => {
+    this.setState(prevState => ({
+      profiles : [...prevState.profiles, profileData],
+    }));
+  }
+
 	render() {
   	return (
     	<div className="container">
     	  <div className="text-center h3">{ this.props.title }</div>
-        <CardList />
+        <Form onSubmit = {this.addNewProfile}/>
+        <CardList profile = {this.state.profiles} />
     	</div>
     );
   }	
