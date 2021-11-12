@@ -10,6 +10,13 @@
     
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+| [Live Application (👆)](https://github-card-application.herokuapp.com/) |
+| ------ |  
+
+<p align="center">
+<img alt="GIF" src="https://github.com/krishdu/github-card-app/blob/master/github-card-image-v1.gif?raw=true" width="800" height="400"/>
+</p>
+
 ## ✨ My Thought Process ✨
 ```
 Step 1
