@@ -10,7 +10,7 @@
     
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-| [Live Application (👆)](https://github-card-application.herokuapp.com/) |
+| [Live Application (👆)](https://krishdu.github.io/github-card-app/) |
 | ------ |  
 
 <p align="center">
